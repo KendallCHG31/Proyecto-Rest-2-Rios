@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Iniciar Sesión</title>
+  <link rel="stylesheet" href="../css/estilos.css" />
+</head>
+<body>
+  <br><br><br><br><br><br><br>
+  <div>
+    <h1 class="titulo2">Iniciar Sesión</h1>
+    
+    <form id="formLogin">
+      <label for="email">Correo electrónico:</label>
+      <input type="email" id="email" required />
+      
+      <label for="password">Contraseña:</label>
+      <input type="password" id="password" required />
+      
+      <button type="submit">Ingresar</button>
+    </form>
+    <div id="mensaje"></div>
+  </div>
+
+  <script>
+    document.getElementById("formLogin").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const email = document.getElementById("email").value;
+      
+      if (email.endsWith("@admin.com")) {
+        // Redirige al dashboard del administrador
+        window.location.href = "dashboard.html";
+      } else {
+        // Redirige a la página de registro (reservaciones)
+        window.location.href = "registro.html";
+      }
+    });
+  </script>
+
+  <br><br><br><br><br><br><br><br><br>
+
+<nav class="menu">
+    <a href="../views/login.html">Iniciar Sesión</a>
+    <a href="../views/registro.html">Registrarse</a>
+    <a href="../views/menu.html">Menu</a>
+    <a href="../views/contacto.html">Contactos</a>
+    <a href="../index.html">Home</a>
+  </nav>
+  
+  <footer class="footer">
+  <p>Síguenos en:
+  <a href="https://www.facebook.com/share/1CjFRPerrF/">Facebook</a>|
+   <a href="https://www.instagram.com/asadorbedua?igsh=cTR0Y2l3eDFhbWVn">Instagram</a> </p>
+</p>
+
+  <p>&copy; 2025 Restaurante 2 Rios</p>
+  <p>“El sabor que conquista tu paladar.”</p>
+</footer>
+
+</body>
+</html>
