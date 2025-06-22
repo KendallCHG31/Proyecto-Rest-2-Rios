@@ -3,14 +3,29 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Formulario de Menú</title>
+  <title>Menús Guardados</title>
   <link rel="stylesheet" href="../css/estilos.css" />
 </head>
 <body>
   <div class="container">
+    <h1>Agregar Menú</h1>
     
-    <h2 class="titulo2">Menús Guardados</h2>
-    <table id="tablamenu">
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" name="nombre" required />
+
+      <label for="descripcion">Descripción:</label>
+      <input type="text" id="descripcion" name="descripcion" required />
+
+      <label for="precio">Precio:</label>
+      <input type="text" id="precio" name="precio" required />
+
+      <button type="submit">Guardar</button>
+   
+
+    <div id="mensaje" style="margin-top: 10px; font-weight: bold;"></div>
+
+    <h1>Menús Guardados</h1>
+    <table id="tablaMenus">
       <thead>
         <tr>
           <th>Nombre</th>
@@ -19,21 +34,22 @@
         </tr>
       </thead>
       <tbody>
-        <!-- Menús se insertan aquí -->
+        <!-- Menús guardados se insertan aquí -->
       </tbody>
     </table>
   </div>
+<script src="admenu.js"></script>
 
-  <script src="menu.js"></script> 
 
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-  
+<br><br>
+
 <nav class="menu">
     <a href="../views/login.html">Iniciar Sesión</a>
     <a href="../views/registro.html">Registrarse</a>
     <a href="../views/menu.html">Menu</a>
     <a href="../views/contacto.html">Contactos</a>
     <a href="../index.html">Home</a>
+    
   </nav>
 
 <footer class="footer">
@@ -48,4 +64,3 @@
 
 </body>
 </html>
-

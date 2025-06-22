@@ -6,6 +6,7 @@ const cors = require('cors');
 const bcrypt = require('bcrypt');
 const { pool } = require('./models/db');
 
+
 const app = express();
 // Servir archivos estáticos (JS, CSS, imágenes)
 app.use(express.static(path.join(__dirname, 'public')));
@@ -64,6 +65,36 @@ app.post('/api/registrar', async (req, res) => {
   }
 });
 
+// Ruta para insertar un menú
+app.post('/api/menus', async (req, res) => {
+  const { nombre, descripcion, precio } = req.body;
+
+  if (!nombre || !descripcion || !precio) {
+    return res.status(400).json({ error: 'Todos los campos son obligatorios' });
+  }
+
+  try {
+    await pool.query(
+      'INSERT INTO menu (nombre, descripcion, precio) VALUES (?, ?, ?)',
+      [nombre, descripcion, precio]
+    );
+    res.status(201).json({ mensaje: 'Menú guardado correctamente' });
+  } catch (error) {
+    console.error('❌ Error al guardar el menú:', error.message);
+    res.status(500).json({ error: 'Error del servidor al guardar menú' });
+  }
+});
+
+// Ruta para listar menús
+app.get('/api/menus', async (req, res) => {
+  try {
+    const [menus] = await pool.query('SELECT * FROM menu');
+    res.json(menus);
+  } catch (error) {
+    console.error('❌ Error al obtener menús:', error.message);
+    res.status(500).json({ error: 'Error al obtener menús' });
+  }
+});
 
 
 const PORT = 3000;
