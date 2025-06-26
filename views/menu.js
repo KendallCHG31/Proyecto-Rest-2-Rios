@@ -13,8 +13,8 @@ async function cargarMenus() {
     menus.forEach(menu => {
       const fila = document.createElement('tr');
       fila.innerHTML = `
-        <td>${menu.nombre}</td>
-        <td>${menu.descripcion}</td>
+        <td ><strong>${menu.nombre}</strong></td>
+        <td >${menu.descripcion}</td>
         <td>₡${parseFloat(menu.precio).toFixed(2)}</td>
       `;
       tbody.appendChild(fila);

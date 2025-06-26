@@ -6,6 +6,20 @@ document.addEventListener('DOMContentLoaded', () => {
   const tablaBody = document.querySelector('#tablaMenus tbody');
   const guardarBtn = document.querySelector('button[type="submit"]');
 
+
+   // Mostrar mensaje con estilo y desaparición automática
+  const mostrarMensaje = (texto, tipo) => {
+    mensaje.textContent = texto;
+    mensaje.className = ''; // Limpiar clases anteriores
+    mensaje.classList.add(tipo === 'exito' ? 'mensaje-exito' : 'mensaje-error');
+
+    setTimeout(() => {
+      mensaje.textContent = '';
+      mensaje.className = '';
+    }, 3000);
+  };
+
+
   // Cargar menús existentes
   const cargarMenus = async () => {
     try {
@@ -35,9 +49,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const descripcion = descripcionInput.value.trim();
     const precio = precioInput.value.trim();
 
+    // Validaciones
     if (!nombre || !descripcion || !precio) {
-      mensaje.textContent = 'Todos los campos son obligatorios';
-      mensaje.style.color = 'red';
+      mostrarMensaje('Por favor, completa todos los campos.', 'error');
+      return;
+    }
+
+    if (isNaN(precio) || Number(precio) <= 0) {
+      mostrarMensaje('El precio debe ser un número positivo.', 'error');
       return;
     }
 
@@ -51,19 +70,16 @@ document.addEventListener('DOMContentLoaded', () => {
       const data = await res.json();
 
       if (res.ok) {
-        mensaje.textContent = data.mensaje;
-        mensaje.style.color = 'green';
+        mostrarMensaje(data.mensaje || 'Menú guardado exitosamente', 'exito');
         nombreInput.value = '';
         descripcionInput.value = '';
         precioInput.value = '';
         cargarMenus();
       } else {
-        mensaje.textContent = data.error || 'Error al guardar';
-        mensaje.style.color = 'red';
+        mostrarMensaje(data.error || 'Error al guardar el menú', 'error');
       }
     } catch (err) {
-      mensaje.textContent = 'Error del servidor';
-      mensaje.style.color = 'red';
+      mostrarMensaje('Error del servidor', 'error');
     }
   });
 

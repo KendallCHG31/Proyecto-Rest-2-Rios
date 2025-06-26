@@ -1,5 +1,4 @@
 
-
 const express = require('express');
 const path = require('path');
 const cors = require('cors');
@@ -62,6 +61,35 @@ app.post('/api/registrar', async (req, res) => {
   } catch (error) {
     console.error('❌ Error al registrar usuario:', error.message);
     res.status(500).json({ error: 'Error del servidor al registrar usuario' });
+  }
+});
+
+// Ruta para login
+app.post('/api/login', async (req, res) => {
+  const { correo, contrasena } = req.body;
+
+  if (!correo || !contrasena) {
+    return res.status(400).json({ error: 'Correo y contraseña requeridos' });
+  }
+
+  try {
+    const [usuarios] = await pool.query('SELECT * FROM usuarios WHERE correo = ?', [correo]);
+
+    if (usuarios.length === 0) {
+      return res.status(401).json({ error: 'Correo o contraseña incorrectos' });
+    }
+
+    const usuario = usuarios[0];
+    const match = await bcrypt.compare(contrasena, usuario.contrasena);
+
+    if (!match) {
+      return res.status(401).json({ error: 'Correo o contraseña incorrectos' });
+    }
+
+    res.json({ mensaje: 'Inicio de sesión exitoso', usuario });
+  } catch (error) {
+    console.error('❌ Error en login:', error.message);
+    res.status(500).json({ error: 'Error interno del servidor' });
   }
 });
 

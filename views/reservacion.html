@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Reservación de Citas</title>
+  <link rel="stylesheet" href="/css/res.css">
+
+</head>
+<div class="info-reserva">
+  <p><strong>Nota:</strong> Si las horas salen en negro, es porque a esa hora la mesa está reservada.</p>
+</div>
+
+<body>
+    <br><br>
+  <div class="form-container">
+    <h2>Reservar una Mesa</h2>
+
+    <form id="formReserva">
+      <label for="nombre">Nombre completo:</label>
+      <input type="text" id="nombre" name="nombre" required>
+
+      <label for="correo">Correo electrónico:</label>
+      <input type="email" id="correo" name="correo" required>
+
+      <label for="fecha">Fecha de reservación:</label>
+      <input type="date" id="fecha" name="fecha" required>
+    
+      <label for="mesa">Número de mesa:</label>
+      <select id="mesa" name="mesa" required>
+        <option value="" disabled selected>Selecciona una mesa</option>
+        <option value="1">Mesa 1</option>
+        <option value="2">Mesa 2</option>
+        <option value="3">Mesa 3</option>
+        <option value="4">Mesa 4</option>
+        <option value="5">Mesa 5</option>
+        <option value="6">Mesa 6</option>
+        <option value="7">Mesa 7</option>
+        <option value="8">Mesa 8</option>
+      </select>
+
+      <label for="hora">Hora:</label>
+      <div class="btnhora">
+        <button type="button" class="hora" value="14:00">2:00 p.m.</button>
+        <button type="button" class="hora" value="15:00">3:00 p.m.</button>
+        <button type="button" class="hora" value="16:00">4:00 p.m.</button>
+        <button type="button" class="hora" value="17:00">5:00 p.m.</button>
+        <button type="button" class="hora" value="18:00">6:00 p.m.</button>
+        <button type="button" class="hora" value="19:00">7:00 p.m.</button>
+        <button type="button" class="hora" value="20:00">8:00 p.m.</button>
+        <button type="button" class="hora" value="21:00">9:00 p.m.</button>
+        <button type="button" class="hora" value="22:00">10:00 p.m.</button>
+      </div>
+      
+
+      <label for="personas">Número de personas:</label>
+      <select id="personas" name="personas" required>
+        <option value="1">1 persona</option>
+        <option value="2" selected>2 personas</option>
+        <option value="3">3 personas</option>
+        <option value="4">4 personas</option>
+      </select>
+
+      <label for="comentarios">Comentarios (opcional):</label>
+      <textarea id="comentarios" name="comentarios" rows="3"></textarea>
+
+      <button type="submit">Reservar</button>
+    </form>
+  </div>
+
+  <script src="reservacion.js"></script>
+  
+  <div id="mensaje" style="margin-top: 20px; font-weight: bold;"></div>
+
+  
+  <nav class="menu">
+    <a href="../views/login.html">Iniciar Sesión</a>
+    <a href="../views/registro.html">Registrarse</a>
+    <a href="../views/menu.html">Menu</a>
+    <a href="../views/contacto.html">Contactos</a>
+    <a href="../index.html">Home</a>
+    
+  </nav>
+
+<footer class="footer">
+  <p>Síguenos en:
+  <a href="https://www.facebook.com/share/1CjFRPerrF/">Facebook</a>|
+   <a href="https://www.instagram.com/asadorbedua?igsh=cTR0Y2l3eDFhbWVn">Instagram</a> </p>
+</p>
+
+  <p>&copy; 2025 Restaurante 2 Rios</p>
+  <p>“El sabor que conquista tu paladar.”</p>
+</footer>
+
+</body>
+
+
+
+</html>

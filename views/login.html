@@ -22,20 +22,7 @@
     <div id="mensaje"></div>
   </div>
 
-  <script>
-    document.getElementById("formLogin").addEventListener("submit", function (e) {
-      e.preventDefault();
-      const email = document.getElementById("email").value;
-      
-      if (email.endsWith("@admin.com")) {
-        // Redirige al dashboard del administrador
-        window.location.href = "dashboard.html";
-      } else {
-        // Redirige a la página de registro (reservaciones)
-        window.location.href = "registro.html";
-      }
-    });
-  </script>
+  <script src="login.js"></script>
 
   <br><br><br><br><br><br><br><br><br>
 
