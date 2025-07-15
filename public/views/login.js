@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     try {
-      console.log('Intentando login con:', { email, password: '*****' }); // no mostrar password real
+      console.log('Intentando login con:', { email, password: '*****' });
 
       const res = await fetch('/api/login', {
         method: 'POST',
@@ -61,12 +61,12 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   function redirectUser(tipo_usuario) {
-    // Para evitar problemas con mayúsculas/minúsculas
+   
     const tipo = tipo_usuario.toLowerCase();
     console.log('redirectUser: tipo_usuario recibido =', tipo);
 
     if (tipo === 'administrador') {
-      window.location.href = 'admenu.html';
+      window.location.href = 'admin.html';
     } else {
       window.location.href = 'reservacion.html';
     }

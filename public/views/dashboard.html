@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard de Reservaciones</title>
+  <link rel="stylesheet" href="../css/dash.css">
+
+</head>
+<body>
+
+<h1 class="titulo-dashboard">Dashboard de Reservaciones</h1>
+
+<br><br>
+<div class="cards-container">
+  <div class="card" id="totalUsuariosCard" style="color: #e60707;">Usuarios Registrados: Cargando...</div>
+  <div class="card" id="totalMenusCard" style="color: #e60707;" >Menus disponibles: Cargando...</div>
+</div>
+
+<div class="grafico-container">
+  <h3>Reservaciones por Día</h3>
+  <canvas id="graficoReservaciones"></canvas>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="../views/dashboard.js"></script> 
+
+</body>
+</html>
+

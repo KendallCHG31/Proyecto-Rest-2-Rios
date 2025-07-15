@@ -2,36 +2,42 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Lista de Usuarios</title>
-  <link rel="stylesheet" href="../css/estilos.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gestión de Usuarios</title>
+  <link rel="stylesheet" href="../css/estilos.css"> 
 </head>
 <body>
 <br><br>
   <div class="container2">  
-    <h2 class="titulo2">Usuarios Registrados</h2>
-    <table class="table" id="tablausuarios">
+    <h2 class="titulo2">Gestión de Tipos de Usuario</h2>
+
+    <div class="mensaje" id="mensaje"></div>
+
+    <table class="table">
       <thead>
         <tr>
           <th>Nombre</th>
           <th>Teléfono</th>
           <th>Correo</th>
+          <th>Tipo Actual</th>
+          <th>Nuevo Tipo</th>
+          <th>Acción</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody id="tablaUsuarios">
         <!-- Usuarios se insertan aquí -->
       </tbody>
     </table>
   </div>
 
-  <script src="usuarios.js"></script> 
+  <script src="cambiar_tipo_usuario.js"></script> 
 
-  <br><br><br><br><br><br><br><br><br><br><br>
+  <br><br><br><br><br><br><br><br><br><br>
 
   <nav class="menu">
     <a href="../views/login.html">Iniciar Sesión</a>
     <a href="../views/registro.html">Registrarse</a>
-    <a href="../views/menu.html">Menú</a>
+    <a href="../views/menu.html">Menu</a>
     <a href="../views/contacto.html">Contactos</a>
     <a href="../index.html">Home</a>
   </nav>
@@ -47,3 +53,5 @@
 
 </body>
 </html>
+
+

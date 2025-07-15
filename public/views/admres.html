@@ -5,8 +5,42 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Reservaciones</title>
   <link rel="stylesheet" href="../css/estilos.css" />
+  <link rel="stylesheet" href="../css/res.css" />
 </head>
 <body>
+
+  <div class="form-container">
+    <h2>Reservar una Mesa</h2>
+
+    <form id="formReserva">
+      <label for="fecha">Fecha de reservación:</label>
+      <input type="date" id="fecha" name="fecha" required />
+
+     <label for="mesa">Número de mesa:</label>
+<select id="mesa" name="mesa" required>
+  <option value="" disabled selected>Selecciona una mesa</option>
+  <!-- Opciones serán insertadas por JS -->
+</select>
+
+<label>Hora:</label>
+<div class="btnhora" id="horaContainer"></div>
+
+      <label for="personas">Número de personas:</label>
+      <select id="personas" name="personas" required>
+        <option value="1">1 persona</option>
+        <option value="2" selected>2 personas</option>
+        <option value="3">3 personas</option>
+        <option value="4">4 personas</option>
+      </select>
+
+      <label for="comentarios">Comentarios (opcional):</label>
+      <textarea id="comentarios" name="comentarios" rows="3"></textarea>
+
+      <button type="submit">Reservar</button>
+    </form>
+
+    <div id="mensaje" style="margin-top: 20px; font-weight: bold;"></div>
+  </div>
 
   <div class="container2">
     <h2 class="titulo2">Reservaciones</h2>
@@ -20,17 +54,28 @@
           <th>Mesa</th>
           <th>Personas</th>
           <th>Comentarios</th>
+          <th>Acciones</th>
         </tr>
       </thead>
-      <tbody>
-        <!-- Reservaciones se insertan aquí -->
-      </tbody>
+      <tbody></tbody>
     </table>
   </div>
 
   <script src="../views/admres.js"></script>
 
-<br><br><br><br><br><br><br><br><br><br><br>
+<div id="modalConfirmacion" class="modal" style="display: none;">
+  <div class="modal-contenido">
+    <h2>¿Deseas eliminar esta reservación?</h2>
+    <div id="detalleReservacion"></div>
+    <div class="modal-botones">
+      <button id="btnConfirmarEliminar">Confirmar</button>
+      <button id="btnCancelarEliminar">Cancelar</button>
+    </div>
+  </div>
+</div>
+
+
+
 
   <nav class="menu">
     <a href="../views/login.html">Iniciar Sesión</a>
@@ -45,8 +90,7 @@
       <a href="https://www.facebook.com/share/1CjFRPerrF/">Facebook</a> |
       <a href="https://www.instagram.com/asadorbedua?igsh=cTR0Y2l3eDFhbWVn">Instagram</a>
     </p>
-    <p>&copy; 2025 Restaurante 2 Rios</p>
-    <p>“El sabor que conquista tu paladar.”</p>
+    <p>&copy; 2025 Restaurante 2 Rios – “El sabor que conquista tu paladar.”</p>
   </footer>
 
 </body>

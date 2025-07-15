@@ -33,6 +33,7 @@
           <th>Nombre</th>
           <th>Descripción</th>
           <th>Precio</th>
+          <th>Acciones</th>
         </tr>
       </thead>
       <tbody>
@@ -41,6 +42,16 @@
     </table>
   </div>
 <script src="admenu.js"></script>
+<div id="modalConfirmacion" class="modal" style="display: none;">
+  <div class="modal-contenido">
+    <h2>¿Deseas eliminar este menú?</h2>
+    <div id="detalleMenu"></div>
+    <div class="modal-botones">
+      <button id="btnConfirmarEliminar">Confirmar</button>
+      <button id="btnCancelarEliminar">Cancelar</button>
+    </div>
+  </div>
+</div>
 
 
 <br><br>
