@@ -350,7 +350,7 @@ app.get('/api/reservaciones-por-dia', async (req, res) => {
 // Función para crear admin único
 async function crearAdminUnico() {
   const correoAdmin = 'admin@restaurante.com';
-  const contraseñaAdmin = 'admin123'; // Cambia esta contraseña si quieres
+  const contraseñaAdmin = 'admin123'; 
 
   try {
     const [usuarios] = await pool.query('SELECT * FROM usuarios WHERE correo = ?', [correoAdmin]);
